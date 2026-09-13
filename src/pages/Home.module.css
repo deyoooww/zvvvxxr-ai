@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #0f0f1e 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 100px;
+  scroll-behavior: smooth;
+}
+
+.content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background: rgba(255, 20, 147, 0.3);
+  border-radius: 2px;
+}
+
+.character_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0 1rem 0;
+  min-height: 240px;
+  perspective: 1000px;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.greeting h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.greeting p {
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  margin: 0;
+  font-weight: 500;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+@media (max-width: 360px) {
+  .content {
+    padding-bottom: 110px;
+  }
+
+  .character_section {
+    min-height: 200px;
+    margin: 1.5rem 0 0.5rem 0;
+  }
+
+  .greeting h2 {
+    font-size: 1.3rem;
+  }
+
+  .greeting p {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .character_section {
+    min-height: 300px;
+  }
+
+  .greeting h2 {
+    font-size: 1.8rem;
+  }
+
+  .greeting p {
+    font-size: 1.2rem;
+  }
+}
