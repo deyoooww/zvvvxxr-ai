@@ -1,0 +1,176 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 20, 147, 0.3);
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  z-index: 0;
+}
+
+.ring_subtle {
+  box-shadow: 0 0 20px rgba(157, 78, 221, 0.2);
+}
+
+.ring_holographic {
+  background: conic-gradient(
+    from 0deg,
+    rgba(255, 20, 147, 0.1),
+    rgba(0, 217, 255, 0.1),
+    rgba(157, 78, 221, 0.1),
+    rgba(255, 20, 147, 0.1)
+  );
+  box-shadow: 0 0 40px rgba(0, 217, 255, 0.3);
+}
+
+.character {
+  position: relative;
+  border-radius: 50%;
+  z-index: 1;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.3));
+}
+
+.state_thinking .character {
+  animation: thinking 1.5s ease-in-out infinite;
+}
+
+.state_listening .character {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.state_working .character {
+  animation: working 2s ease-in-out infinite;
+}
+
+.state_success .character {
+  animation: success 0.6s ease;
+}
+
+.state_error .character {
+  animation: error 0.4s ease;
+}
+
+.state_happy .character {
+  animation: happy 0.5s ease;
+}
+
+.state_idle .character {
+  animation: idle 4s ease-in-out infinite;
+}
+
+.animate_off {
+  animation: none !important;
+}
+
+.animate_low {
+  animation-duration: 6s !important;
+}
+
+.animate_medium {
+  animation-duration: 4s !important;
+}
+
+.animate_high {
+  animation-duration: 2s !important;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, rgba(255, 20, 147, 0.8), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.particles_low .particle {
+  animation: float 4s ease-in-out infinite;
+}
+
+.particles_medium .particle {
+  animation: float 3s ease-in-out infinite;
+}
+
+.particles_high .particle {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes idle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes thinking {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1.05) translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.08); opacity: 0.8; }
+}
+
+@keyframes working {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+}
+
+@keyframes success {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes error {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+@keyframes happy {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(5deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .character,
+  .ring,
+  .particle {
+    animation: none !important;
+  }
+}
